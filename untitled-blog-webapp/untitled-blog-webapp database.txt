@@ -1,0 +1,64 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema blogapp
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema blogapp
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `blogapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `blogapp` ;
+
+-- -----------------------------------------------------
+-- Table `blogapp`.`access`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `blogapp`.`access` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `blog_pass` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `blogapp`.`blog`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `blogapp`.`blog` (
+  `blogId` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(255) NULL DEFAULT NULL,
+  `para1` LONGTEXT NULL DEFAULT NULL,
+  `para2` LONGTEXT NULL DEFAULT NULL,
+  `para3` LONGTEXT NULL DEFAULT NULL,
+  `para4` LONGTEXT NULL DEFAULT NULL,
+  `pic1` BLOB NULL DEFAULT NULL,
+  `pic2` BLOB NULL DEFAULT NULL,
+  `pic3` BLOB NULL DEFAULT NULL,
+  `pic4` BLOB NULL DEFAULT NULL,
+  `tag1` VARCHAR(100) NULL DEFAULT NULL,
+  `tag2` VARCHAR(100) NULL DEFAULT NULL,
+  `tag3` VARCHAR(100) NULL DEFAULT NULL,
+  `tag4` VARCHAR(100) NULL DEFAULT NULL,
+  `tag5` VARCHAR(100) NULL DEFAULT NULL,
+  `author` VARCHAR(100) NULL DEFAULT NULL,
+  `date_added` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`blogId`),
+  UNIQUE INDEX `unique_title` (`title` ASC) VISIBLE)
+ENGINE = InnoDB
+AUTO_INCREMENT = 25
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
